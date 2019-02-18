@@ -96,6 +96,7 @@ function authorize(credentials: any, callback: Function) {
 }
 
 app.get("/calendar", async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
   authorize(auth.web, (auth: any) => {
     const calendar = google.calendar({ version: "v3", auth });
     calendar.events.list(
