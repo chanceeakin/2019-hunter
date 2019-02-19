@@ -68,18 +68,7 @@ const Project = ({ pageContext: { slug }, data: { mdx: postNode } }) => {
           <Spring native config={config.slow} delay={500} from={{ opacity: 0 }} to={{ opacity: 1 }}>
             {props => (
               <InformationWrapper style={props}>
-                <InfoBlock customcolor={project.color}>
-                  <div>Client</div>
-                  <div>{project.client}</div>
-                </InfoBlock>
-                <InfoBlock customcolor={project.color}>
-                  <div>Date</div>
-                  <div>{project.date}</div>
-                </InfoBlock>
-                <InfoBlock customcolor={project.color}>
-                  <div>Service</div>
-                  <div>{project.service}</div>
-                </InfoBlock>
+                <InfoBlock customcolor={project.color} />
               </InformationWrapper>
             )}
           </Spring>
