@@ -1,160 +1,90 @@
-![](https://i.imgur.com/M0nwIVi.png)
-
-# Gatsby Starter Portfolio: Emma
-
-A portfolio starter for [Gatsby](https://www.gatsbyjs.org/). The target audience are designers and photographers.
-
-[Demo Website](https://portfolio-emma.netlify.com/)
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/LeKoArts/gatsby-starter-portfolio-emma) [![Edit gatsby-starter-portfolio-emma](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/LekoArts/gatsby-starter-portfolio-emma/tree/master/)
-
-[![CircleCI](https://circleci.com/gh/LekoArts/gatsby-starter-portfolio-emma.svg?style=svg)](https://circleci.com/gh/LekoArts/gatsby-starter-portfolio-emma)
-
-- Full-width grid-layout
-- Large images
-- Light theme
-
-## Why?
-
-If you want to quickly bootstrap a design/photography portfolio or use it as a foundation for your personal site the *gatsby-starter-portfolio* are a perfect fit for you! The project's goal is to offer minimalistic and fast websites. 
-
-I hope you like my starters and create something awesome! To see some of my work you can visit my [website](https://www.lekoarts.de) or support me on [Patreon](https://www.patreon.com/lekoarts) to get some neat rewards (4K images, project files, tutorial insights). Every pledge on Patreon helps me creating more free starters!
-
-Also check out the other *gatsby-starter-portfolio*:
-- [gatsby-starter-portfolio-emilia](https://github.com/LeKoArts/gatsby-starter-portfolio-emilia)
-- [gatsby-starter-portfolio-bella](https://github.com/LeKoArts/gatsby-starter-portfolio-bella)
-- [gatsby-starter-portfolio-cara](https://github.com/LeKoArts/gatsby-starter-portfolio-cara)
-
-Check out the [Gatsby Starter Portfolio Overview](https://gatsby-starter-portfolio.netlify.com/)!
-
-## Features
-
-- Configurable
-    - Use the website.js to easily change the most important information
-    - Easily change the font
-- Choose a color for your projects highlights
-- Create your subpages with MDX
-- Uses styled-components for styling
-- [react-spring](https://github.com/react-spring/react-spring) animations
-- Projects in MDX ([gatsby-mdx](https://github.com/ChristopherBiscardi/gatsby-mdx))
-- Cypress for End-to-End testing (+ CircleCI config)
-- Google Analytics Support
-- SEO
-    - Sitemap
-    - Schema.org JSONLD
-    - OpenGraph Tags
-    - Twitter Tags
-- Offline Support
-- WebApp Manifest Support
-- Responsive images
-    - The right image size for every screen size
-    - Traced SVG loading (lazy-loading)
-    - WebP support
+# Gatsby Tailwind Emotion Starter
 
 ## Getting Started
 
-Check your development environment! You'll need [Node.js](https://nodejs.org/en/), the [Gatsby CLI](https://www.gatsbyjs.org/docs/) and [node-gyp](https://github.com/nodejs/node-gyp#installation) installed. The official Gatsby website also lists two articles regarding this topic:
-- [Gatsby on Windows](https://www.gatsbyjs.org/docs/gatsby-on-windows/)
-- [Check your development environment](https://www.gatsbyjs.org/tutorial/part-zero/)
-
-To copy and install this starter run this command (with "project-name" being the name of your folder you wish to install it in):
-
-```
-gatsby new project-name https://github.com/LekoArts/gatsby-starter-portfolio-emma
-cd project-name
-npm run dev
+Install Gatsby CLI:
+```sh
+npm install --global gatsby-cli
 ```
 
-### Adding a new project
-- Create a new folder in `content/projects`
-- Create a new markdown/mdx file, add the frontmatter (use the date format "YYYY-MM-DD")
-- Add an image and reference it in your frontmatter as `cover`
-- Write your content below the frontmatter
+Create new Gatsby project using this starter:
+```sh
+gatsby new my-new-website https://github.com/muhajirframe/gatsby-tailwind-emotion-starter
+```
 
-If you're still unsure have a look at the already existing examples.
+```sh
+cd my-new-website
+```
 
-### Adding a new page
-- Create a new folder in `src/pages`
-- Create a new mdx file with the name `index.mdx` in it
+## Usage
 
-### Adding new features/plugins
+### Develop
 
-You can add other features by having a look at the official [plugins page](https://www.gatsbyjs.org/docs/plugins/)
+```
+npm run develop
+```
 
-### Building your site
+### Build
 
 ```
 npm run build
 ```
-Copy the content of the `public` folder to your webhost or use a website like Netlify which automates that for you.
+Your built file will be in `/public`
 
-## Configuration
+This project was based on [gatsby-plugin-tailwindcss](https://github.com/muhajirframe/gatsby-plugin-tailwindcss/)
 
-You can configure your setup in `config/website.js`:
+### How the heck do I use it?
 
-```JS
-module.exports = {
-  pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
-  siteTitle: 'Emma', // Navigation and Site Title
-  siteTitleAlt: 'Emma - Gatsby Starter Portfolio', // Alternative Site title for SEO
-  siteUrl: 'https://portfolio-emma.netlify.com', // Domain of your site. No trailing slash!
-  siteLanguage: 'en', // Language Tag on <html> element
-  siteLogo: '/logo.png', // Used for SEO and manifest
-  siteDescription: 'Minimalistic bright portfolio with full-width grid and large images',
-  author: 'LekoArts', // Author for schemaORGJSONLD
+```javascript
+import React from 'react'
+import styled from 'react-emotion'
 
-  // siteFBAppID: '123456789', // Facebook App ID - Optional
-  userTwitter: '@emma', // Twitter Username
-  ogSiteName: 'emma', // Facebook Site Name
-  ogLanguage: 'en_US',
-  googleAnalyticsID: 'UA-12345689-1',
 
-  // Manifest and Progress color
-  themeColor: '#3498DB',
-  backgroundColor: '#2b2e3c',
-}
+const Container = styled.div`
+  ${tw`py-8`};
+`
+const Text = styled.p`
+  ${tw`bg-black text-white`};
+`
+
+const Home = () => (
+  <Container>
+    <Text>I am Text component made with Tailwind CSS + EmotionJS</Text>
+  </Container>
+)
+
+export default Home
 ```
 
-You can also configure the styling of the site by editing the theme variables in `config/theme.js`.
+### Why would I use it?
 
-```JS
-import { darken } from 'polished'
+Because Tailwind CSS is awesome. If you used [Tachyons](https://tachyons.io/) before. You know how awesome it utility first CSS. Compared to CSS framework like [Bootstrap](http://getbootstrap.com/). -- If you haven't try utility first CSS, give it a try. It's one of the best things in my life --. Tailwind is a more customizable version of Tachyons.
 
-const brand = {
-  primary: '#cf1993',
-  secondary: '#7b8acc',
-}
+But, because [Tailwind CSS](https://tailwindcss.com) gives you alot of class as utilities. The file size gets bloated. In fact it's 1.5 times bigger than Bootstrap. (https://tailwindcss.com/docs/controlling-file-size )
 
-const colors = {
-  grey: '#6b6b6b',
-  black: '#000',
-  white: '#fff',
-  bg_color: '#f3f3f3',
-  body_color: '#444',
-  link_color: brand.primary,
-  link_color_hover: `${darken(0.15, brand.primary)}`,
-}
+CSS-in-JS to save.
 
-const theme = {
-  brand,
-  colors,
-  breakpoints: {
-    xs: '400px',
-    s: '600px',
-    m: '900px',
-    l: '1200px',
-  },
-  container: {
-    base: '100rem',
-    text: '55rem',
-  },
-  spacer: {
-    horizontal: '2rem',
-    vertical: '3rem',
-  },
-}
+Fortunately, you can use CSS-in-JS like [Emotion](https://github.com/emotion-js/emotion), to only load needed styles. So you can keep you css size small.
 
-export default theme
-```
+Furthremore, CSS-in-JS is just awesome. [CSS in JS: Benefits, Drawbacks, and Tooling](https://objectpartners.com/2017/11/03/css-in-js-benefits-drawbacks-and-tooling/)
 
-**Attention:** You also need to edit `static/robots.txt` to include your domain!
+Why Gatsby?
+Because Gatsby is blazing fast, and comes with alot of plugins
+
+## For more information
+
+- [Github](https://github.com/muhajirframe/gatsby-tailwind-emotion-starter)
+- [gatsby-tailwind-emotion-starter](https://github.com/muhajirframe/gatsby-tailwind-emotion-starter)
+- Got a question? [Submit an issue](https://github.com/muhajirframe/gatsby-tailwind-emotion-starter/issues/new)
+
+## Contributing
+
+- [Submit an idea](https://github.com/muhajirframe/gatsby-tailwind-emotion-starter/issues/new)
+- Make a pull request
+
+## Related
+- [react-tailwind-emotion-starter](https://github.com/muhajirframe/react-tailwind-emotion-starter) A React + Tailwind + EmotionJs starter based on [create-react-app](https://github.com/facebook/create-react-app)
+- [vscode-tailwind-styled-snippets](https://github.com/muhajirframe/vscode-tailwind-styled-snippets)
+- [gatsby-plugin-tailwindcss](https://github.com/muhajirframe/gatsby-plugin-tailwincss)
+
+**Enjoy!**
