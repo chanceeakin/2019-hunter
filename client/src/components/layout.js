@@ -4,6 +4,10 @@ import Helmet from 'react-helmet'
 import styled from 'react-emotion'
 import { StaticQuery, graphql } from 'gatsby'
 
+import NavBar from './NavBar'
+import ResponsiveWrapper from './ResponsiveWrapper'
+import NavBarWrapper from './NavBarWrapper'
+
 // reset.css
 import './layout.css'
 
@@ -11,7 +15,7 @@ const Content = styled.div`
   ${tw`container mx-auto `}
 `
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -23,18 +27,21 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <React.Fragment>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
-          ]}
-        >
-          <html lang="en" />
-        </Helmet>
-        <Content>{children}</Content>
-      </React.Fragment>
+      <ResponsiveWrapper>
+        <NavBarWrapper>
+          <Helmet
+            title={data.site.siteMetadata.title}
+            meta={[
+              { name: 'description', content: 'Sample' },
+              { name: 'keywords', content: 'sample, something' },
+            ]}
+          >
+            <html lang="en" />
+          </Helmet>
+          <NavBar location={location} />
+          <Content>{children}</Content>
+        </NavBarWrapper>
+      </ResponsiveWrapper>
     )}
   />
 )

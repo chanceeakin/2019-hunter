@@ -6,8 +6,8 @@ module.exports = {
     'gatsby-plugin-tailwindcss',
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
-    `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

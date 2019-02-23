@@ -1,23 +1,31 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
-import Layout from '../components/layout'
 import Hero from '../components/Hero'
+import Layout from '../components/layout'
 
-const IndexPage = ({ data }) => (
-  <Layout>
-    <Hero title="Hunter Enoch, bass-baritone" image={data.coverImage} />
-    <p>Welcome to your new Gatsby + Tailwind CSS + Emotion js site</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+const IndexPage = React.memo(({ data, location }) => (
+  <Layout location={location}>
+    <Hero
+      title="Hunter Enoch, bass-baritone"
+      imageBig={data.coverImage}
+      imageSmall={data.mobileImage}
+    />
   </Layout>
-)
+))
 
 export const query = graphql`
   query {
     coverImage: file(relativePath: { regex: "/167full/" }) {
       childImageSharp {
         fluid(maxWidth: 2000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    mobileImage: file(relativePath: { regex: "/97edit/" }) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
           ...GatsbyImageSharpFluid
         }
       }
