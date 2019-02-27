@@ -113,6 +113,7 @@ function authorize(credentials, callback) {
 }
 app.get("/calendar", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
+        res.setHeader("Access-Control-Allow-Origin", "*");
         authorize(auth.web, function (auth) {
             var calendar = googleapis_1.google.calendar({ version: "v3", auth: auth });
             calendar.events.list({

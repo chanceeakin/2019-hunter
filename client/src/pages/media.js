@@ -3,12 +3,12 @@ import React from 'react'
 import Layout from '../components/layout'
 import TransitionWrapper from '../components/TransitionWrapper'
 
-const Acclaim = ({ location }) => (
+const Media = ({ location }) => (
   <Layout location={location}>
     <TransitionWrapper>
-      <h1>Acclaim</h1>
+      <h1>Media</h1>
     </TransitionWrapper>
   </Layout>
 )
 
-export default Acclaim
+export default Media

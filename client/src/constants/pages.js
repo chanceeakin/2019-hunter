@@ -1,0 +1,5 @@
+export const HOME_PAGE = 'home'
+export const ABOUT_PAGE = 'about'
+export const CALENDAR_PAGE = 'calendar'
+export const ACCLAIM_PAGE = 'acclaim'
+export const MEDIA_PAGE = 'media'

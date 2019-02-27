@@ -1,6 +1,6 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import TransitionLink from 'gatsby-plugin-transition-link'
 import styled from 'react-emotion'
 import { useTransition, animated } from 'react-spring'
 import { colors } from '../../tailwind'
@@ -19,17 +19,17 @@ const Nav = styled(animated.nav)`
   width: 100%;
   height: 100%;
 `
-const BoldItem = styled(Link)`
+const BoldItem = styled(TransitionLink)`
   ${tw`mb-0 pl-2 pr-2 text-black font-mono align-middle hover:text-grey`};
-  color: ${props => (props.selected ? colors.grey : null)};
+  color: ${props => (props.selected ? colors['grey-darker'] : null)};
   list-style-type: none;
   font-weight: 600;
   text-decoration: none;
 `
 
-const Item = styled(Link)`
+const Item = styled(TransitionLink)`
   ${tw`mb-0 pl-2 pr-2 text-black font-mono align-middle hover:text-grey`};
-  color: ${props => (props.selected ? colors.grey : null)};
+  color: ${props => (props.selected ? colors['grey-darker'] : null)};
   list-style-type: none;
   text-decoration: none;
 `
@@ -56,7 +56,7 @@ const NavBar = React.memo(({ location }) => {
     <NavContainer
       onFocus={() => setNavShown(true)}
       onBlur={() => setNavShown(false)}
-      onMouseOver={() => setNavShown(true)}
+      onMouseEnter={() => setNavShown(true)}
       onMouseLeave={() => setNavShown(false)}
     >
       {transition.map(
@@ -66,26 +66,62 @@ const NavBar = React.memo(({ location }) => {
               <BoldItem
                 to={PATHS.HOME}
                 selected={location.pathname === PATHS.HOME}
+                exit={{
+                  length: 1.5,
+                }}
+                entry={{
+                  length: 1.5,
+                }}
               >
                 Hunter Enoch
               </BoldItem>
               <Item
                 to={PATHS.ABOUT}
                 selected={location.pathname === PATHS.ABOUT}
+                exit={{
+                  length: 1.5,
+                }}
+                entry={{
+                  length: 1.5,
+                }}
               >
                 About
               </Item>
               <Item
                 to={PATHS.CALENDAR}
                 selected={location.pathname === PATHS.CALENDAR}
+                exit={{
+                  length: 1.5,
+                }}
+                entry={{
+                  length: 1.5,
+                }}
               >
                 Calendar
               </Item>
               <Item
                 to={PATHS.ACCLAIM}
                 selected={location.pathname === PATHS.ACCLAIM}
+                exit={{
+                  length: 1.5,
+                }}
+                entry={{
+                  length: 1.5,
+                }}
               >
                 Acclaim
+              </Item>
+              <Item
+                to={PATHS.MEDIA}
+                selected={location.pathname === PATHS.MEDIA}
+                exit={{
+                  length: 1.5,
+                }}
+                entry={{
+                  length: 1.5,
+                }}
+              >
+                Media
               </Item>
             </Nav>
           )

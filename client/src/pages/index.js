@@ -3,14 +3,17 @@ import { graphql } from 'gatsby'
 
 import Hero from '../components/Hero'
 import Layout from '../components/layout'
+import TransitionWrapper from '../components/TransitionWrapper'
 
 const IndexPage = React.memo(({ data, location }) => (
   <Layout location={location}>
-    <Hero
-      title="Hunter Enoch, bass-baritone"
-      imageBig={data.coverImage}
-      imageSmall={data.mobileImage}
-    />
+    <TransitionWrapper>
+      <Hero
+        title="Hunter Enoch, bass-baritone"
+        imageBig={data.coverImage}
+        imageSmall={data.mobileImage}
+      />
+    </TransitionWrapper>
   </Layout>
 ))
 

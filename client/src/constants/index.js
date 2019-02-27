@@ -1,3 +1,4 @@
 import * as PATHS from './paths'
+import * as PAGES from './pages'
 
-export { PATHS }
+export { PATHS, PAGES }

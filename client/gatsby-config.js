@@ -4,6 +4,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-tailwindcss',
+    `gatsby-plugin-transition-link`,
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     `gatsby-transformer-sharp`,
